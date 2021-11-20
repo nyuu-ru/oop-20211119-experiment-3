@@ -12,6 +12,7 @@ public class SineGraphPanel extends JPanel {
 	private static final int MARGIN_WIDTH = 20;
 	private static final int GRAPH_SEGMENTS = 100;
 	
+	private static Color graphColor = Color.red;
 	private static double phaseShift = 0.0;
 	private static int amplitude  = 100;
 	private static int periods = 1;
@@ -47,7 +48,8 @@ public class SineGraphPanel extends JPanel {
 		double stepX = (endX - startX) / GRAPH_SEGMENTS;
 		int lastX = areaStartX;
 		int lastY = areaMiddleY;
-		g2d.setColor(Color.red);
+		
+		g2d.setColor(graphColor);
 
 		for (double x = startX; x <= endX; x += stepX) {
 			double amp = amplitude / 100.0;

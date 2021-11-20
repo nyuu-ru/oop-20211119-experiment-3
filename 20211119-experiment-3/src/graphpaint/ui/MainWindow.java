@@ -22,6 +22,16 @@ public class MainWindow extends JFrame {
 	
 	private int amplitude = 100;
 	
+	/*
+	 * Домашнее задание :)
+	 * 
+	 * Создать элемент, позволяющий выбрать цвет графика.
+	 * Цвет должен быть типа Color
+	 * На основе чего делать выбор цвета - можно выбрать, например,
+	 * на https://web.mit.edu/6.005/www/sp14/psets/ps4/java-6-tutorial/components.html
+	 * 
+	 */
+	
 	public MainWindow() {
 		setTitle("Рисовалка графика y=sin(x) :)");
 		setSize(3000, 1800);
@@ -30,7 +40,6 @@ public class MainWindow extends JFrame {
 		
 		sineGraphPanel = new SineGraphPanel();
 		add(sineGraphPanel);
-		
 		
 		Box settingsPanel = Box.createVerticalBox();
 		amplitudeSettingsElement = new AmplitudeSettingsElement();
