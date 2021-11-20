@@ -33,15 +33,7 @@ public class SineGraphPanel extends JPanel {
 		int areaEndY    = getHeight() - MARGIN_WIDTH - 1;
 		int areaMiddleY = (areaStartY + areaEndY) / 2;
 		
-		g2d.setColor(Color.white);
-		g2d.fillRect(MARGIN_WIDTH, MARGIN_WIDTH,
-				getWidth() - MARGIN_WIDTH * 2,
-				getHeight() - MARGIN_WIDTH * 2);
-		g2d.setStroke(new BasicStroke(6));
-		g2d.setColor(Color.black);
-		g2d.drawRect(MARGIN_WIDTH, MARGIN_WIDTH,
-				getWidth() - MARGIN_WIDTH * 2,
-				getHeight() - MARGIN_WIDTH * 2);
+		drawGraphArea(g2d);
 		
 		double startX = 0.0;
 		double endX = 2*Math.PI;
@@ -50,7 +42,6 @@ public class SineGraphPanel extends JPanel {
 		int lastY = areaMiddleY;
 		
 		g2d.setColor(graphColor);
-
 		for (double x = startX; x <= endX; x += stepX) {
 			double amp = amplitude / 100.0;
 			double y = Math.sin((x * periods) +
@@ -61,6 +52,18 @@ public class SineGraphPanel extends JPanel {
 			lastX = nextX;
 			lastY = nextY;
 		}
+	}
+
+	private void drawGraphArea(Graphics2D g2d) {
+		g2d.setColor(Color.white);
+		g2d.fillRect(MARGIN_WIDTH, MARGIN_WIDTH,
+				getWidth() - MARGIN_WIDTH * 2,
+				getHeight() - MARGIN_WIDTH * 2);
+		g2d.setStroke(new BasicStroke(6));
+		g2d.setColor(Color.black);
+		g2d.drawRect(MARGIN_WIDTH, MARGIN_WIDTH,
+				getWidth() - MARGIN_WIDTH * 2,
+				getHeight() - MARGIN_WIDTH * 2);
 	}
 
 }
