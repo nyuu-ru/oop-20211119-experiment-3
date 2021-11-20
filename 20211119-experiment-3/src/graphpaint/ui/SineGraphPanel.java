@@ -8,9 +8,13 @@ import java.awt.BasicStroke;
 import javax.swing.JPanel;
 
 public class SineGraphPanel extends JPanel {
-	
+	private static final long serialVersionUID = 1L;
 	private static final int MARGIN_WIDTH = 20;
 	private static final int GRAPH_SEGMENTS = 100;
+	
+	private static double phaseShift = 0.0;
+	private static int amplitude  = 100;
+	private static int periods = 1;
 
 	public SineGraphPanel() {
 
@@ -43,8 +47,12 @@ public class SineGraphPanel extends JPanel {
 		double stepX = (endX - startX) / GRAPH_SEGMENTS;
 		int lastX = areaStartX;
 		int lastY = areaMiddleY;
+		g2d.setColor(Color.red);
+
 		for (double x = startX; x <= endX; x += stepX) {
-			double y = Math.sin(x);
+			double amp = amplitude / 100.0;
+			double y = Math.sin((x * periods) +
+					phaseShift * 2.0 * Math.PI) * amp;
 			int nextX = (int)(((x - startX) / stepX / GRAPH_SEGMENTS) * (areaEndX - areaStartX) + areaStartX);
 			int nextY = (int)((-y * (areaMiddleY - areaStartY)) + areaMiddleY);
 			g2d.drawLine(lastX, lastY, nextX, nextY);
