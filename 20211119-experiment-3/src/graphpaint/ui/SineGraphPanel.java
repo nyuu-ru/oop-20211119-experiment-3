@@ -12,10 +12,10 @@ public class SineGraphPanel extends JPanel {
 	private static final int MARGIN_WIDTH = 20;
 	private static final int GRAPH_SEGMENTS = 100;
 	
-	private static Color graphColor = Color.red;
-	private static double phaseShift = 0.0;
-	private static int amplitude  = 100;
-	private static int periods = 1;
+	private Color graphColor = Color.red;
+	private double phaseShift = 0.0;
+	private int amplitude  = 100;
+	private int periods = 1;
 
 	public SineGraphPanel() {
 
